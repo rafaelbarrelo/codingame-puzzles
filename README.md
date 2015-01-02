@@ -13,7 +13,7 @@ Finalizados
 * 003 - Skynet (The Chasm) (C#, Python)
 * 004 - Temperatures (C#, Python)
 * 005 - Mars Lander - Level 1 (C#, Python)
-* 006 - ASCII Art (C#)
+* 006 - ASCII Art (C#, Python)
 
 
 [Codingame]:http://www.cogingame.com/puzzles

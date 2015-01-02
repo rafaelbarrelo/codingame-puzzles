@@ -1,6 +1,5 @@
 //Puzzle - ASCII Art
 using System;
-using System.Linq;
 using System.IO;
 using System.Text;
 using System.Collections;
@@ -15,41 +14,31 @@ class Solution
         int H = int.Parse(Console.ReadLine());
         string T = Console.ReadLine();
         
-        //Console.Error.WriteLine("T:" + T + " L: "+ L + " H: " + H);
         Dictionary<string, string[]> letras = new Dictionary<string, string[]>();
-        string[] alfabeto = {"A", "B", "C", "D", "E", "F", "G",
-                      "H", "I", "J", "K", "L", "M", "N",
-                      "O", "P", "Q", "R", "S", "T", "U",
-                      "V", "W", "X", "Y", "Z", "0"};
+        string alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0";
                       
-        foreach(string lt in alfabeto){
-            letras.Add(lt, new string[H]);
-        }
-                      
+        for (int l=0; l < alfabeto.Length; l++){
+            letras.Add(alfabeto.Substring(l, 1), new string[H]);
+        }                      
+        
+        string saida = "";              
         for (int i = 0; i < H; i++)
         {
             string ROW = Console.ReadLine();
             int pos = 0;
             while (ROW.Length > 0){
-                string x = ROW.Substring(0, L);
-                //Console.Error.WriteLine("X " + x.Replace(" ", "_"));
-                letras[alfabeto[pos]][i]=x;
+                string lt = alfabeto.Substring(pos, 1);
+                letras[lt][i]=ROW.Substring(0, L);
                 ROW = ROW.Substring(L);
                 pos++;
             }
-        }
-        
-        string saida = "";
-        for(int x = 0; x < H; x ++){
-            for(int i=0; i < T.Length; i++){
-                string lt = T.Substring(i, 1).ToUpper();
-                //Console.Error.WriteLine(lt);
+            for(int x=0; x < T.Length; x++){
+                string lt = T.Substring(x, 1).ToUpper();
                 if (letras.ContainsKey(lt)){
-                    saida += letras[lt][x].ToString();    
+                    saida += letras[lt][i].ToString();    
                 }else{
-                    saida += letras["0"][x].ToString();
+                    saida += letras["0"][i].ToString();
                 }
-                
             }    
             saida += Environment.NewLine;
         }
