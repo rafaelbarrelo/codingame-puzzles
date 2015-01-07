@@ -16,4 +16,4 @@ Finalizados
 * 006 - ASCII Art (C#, Python)
 
 
-[Codingame]:http://www.cogingame.com/puzzles
+[Codingame]:http://www.codingame.com/puzzles
